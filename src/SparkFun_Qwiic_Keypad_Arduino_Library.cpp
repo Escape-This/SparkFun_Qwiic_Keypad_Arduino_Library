@@ -51,7 +51,6 @@ KEYPAD::KEYPAD()
 boolean KEYPAD::begin(TwoWire &wirePort, uint8_t deviceAddress)
 {
   _i2cPort = &wirePort;
-  _i2cPort->begin(); //This resets any setClock() the user may have done
 
   _deviceAddress = deviceAddress;
 
@@ -59,6 +58,7 @@ boolean KEYPAD::begin(TwoWire &wirePort, uint8_t deviceAddress)
 
   return (true); //We're all setup!
 }
+
 
 //Returns true if I2C device ack's
 boolean KEYPAD::isConnected()
